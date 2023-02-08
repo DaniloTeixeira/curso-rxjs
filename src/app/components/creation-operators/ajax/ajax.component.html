@@ -1,0 +1,19 @@
+<p>ajax works!</p>
+<div class="container-fluid">
+  <table class="table table-striped w-50">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th>{{ user.id }}</th>
+        <th>{{ user.name }}</th>
+        <th>{{ user.email }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>
