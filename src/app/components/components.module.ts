@@ -10,6 +10,13 @@ import { IntervalComponent } from './creation-operators/interval';
 import { TimerComponent } from './creation-operators/timer';
 import { ThrowErrorComponent } from './creation-operators/throw-error';
 import { AjaxComponent } from './creation-operators/ajax';
+import { ForkjoinComponent } from './join-operators/forkjoin';
+import { ZipComponent } from './join-operators/zip';
+import { MergeConcatComponent } from './join-operators/merge-concat';
+import { MapComponent } from './transformation-operators/map/map.component';
+import { MapToComponent } from './transformation-operators/map-to/map-to.component';
+import { SwitchMapComponent } from './transformation-operators/switch-map/switch-map.component';
+import { ToArrayComponent } from './transformation-operators/to-array/to-array.component';
 
 const components = [
   ObservablesComponent,
@@ -21,6 +28,13 @@ const components = [
   TimerComponent,
   ThrowErrorComponent,
   AjaxComponent,
+  ForkjoinComponent,
+  ZipComponent,
+  MergeConcatComponent,
+  MapComponent,
+  MapToComponent,
+  SwitchMapComponent,
+  ToArrayComponent,
 ];
 
 @NgModule({
