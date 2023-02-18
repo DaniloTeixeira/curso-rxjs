@@ -13,10 +13,16 @@ import { AjaxComponent } from './creation-operators/ajax';
 import { ForkjoinComponent } from './join-operators/forkjoin';
 import { ZipComponent } from './join-operators/zip';
 import { MergeConcatComponent } from './join-operators/merge-concat';
-import { MapComponent } from './transformation-operators/map/map.component';
-import { MapToComponent } from './transformation-operators/map-to/map-to.component';
-import { SwitchMapComponent } from './transformation-operators/switch-map/switch-map.component';
-import { ToArrayComponent } from './transformation-operators/to-array/to-array.component';
+import { MapComponent } from './transformation-operators/map';
+import { MapToComponent } from './transformation-operators/map-to';
+import { SwitchMapComponent } from './transformation-operators/switch-map';
+import { ToArrayComponent } from './transformation-operators/to-array';
+import { FilterComponent } from './filtering-operators/filter';
+import { TakeComponent } from './filtering-operators/take';
+import { TakeUntilComponent } from './filtering-operators/take-until';
+import { TakeWhileComponent } from './filtering-operators/take-while';
+import { SkipComponent } from './filtering-operators/skip';
+import { DebounceTimeComponent } from './filtering-operators/debounce-time';
 
 const components = [
   ObservablesComponent,
@@ -35,6 +41,12 @@ const components = [
   MapToComponent,
   SwitchMapComponent,
   ToArrayComponent,
+  FilterComponent,
+  TakeComponent,
+  TakeUntilComponent,
+  TakeWhileComponent,
+  SkipComponent,
+  DebounceTimeComponent,
 ];
 
 @NgModule({

@@ -8,7 +8,6 @@ import {
   map,
   merge,
   Observable,
-  toArray,
   zip,
 } from 'rxjs';
 
@@ -69,6 +68,12 @@ export class ApiService {
 
   getUserByCpf(id: number): Observable<any> {
     const params = new HttpParams().set('id', id);
+
+    return this.http.get<any>(this.apiLocal, { params });
+  }
+
+  getUserByNameDebounceTime(name: string): Observable<any> {
+    const params = { name: name };
 
     return this.http.get<any>(this.apiLocal, { params });
   }
