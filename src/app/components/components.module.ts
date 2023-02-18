@@ -10,9 +10,9 @@ import { IntervalComponent } from './creation-operators/interval';
 import { TimerComponent } from './creation-operators/timer';
 import { ThrowErrorComponent } from './creation-operators/throw-error';
 import { AjaxComponent } from './creation-operators/ajax';
-import { ForkjoinComponent } from './join-operators/forkjoin';
-import { ZipComponent } from './join-operators/zip';
-import { MergeConcatComponent } from './join-operators/merge-concat';
+import { ForkjoinComponent } from './creation-and-join-operators/forkjoin';
+import { ZipComponent } from './creation-and-join-operators/zip';
+import { MergeConcatComponent } from './creation-and-join-operators/merge-concat';
 import { MapComponent } from './transformation-operators/map';
 import { MapToComponent } from './transformation-operators/map-to';
 import { SwitchMapComponent } from './transformation-operators/switch-map';
@@ -23,6 +23,10 @@ import { TakeUntilComponent } from './filtering-operators/take-until';
 import { TakeWhileComponent } from './filtering-operators/take-while';
 import { SkipComponent } from './filtering-operators/skip';
 import { DebounceTimeComponent } from './filtering-operators/debounce-time';
+import { SwitchAllComponent } from './join-operators/switch-all';
+import { StartWithComponent } from './join-operators/start-with';
+import { CombineLatestComponent } from './join-operators/combine-latest';
+import { WithLatestFromComponent } from './join-operators/with-latest-from';
 
 const components = [
   ObservablesComponent,
@@ -47,6 +51,10 @@ const components = [
   TakeWhileComponent,
   SkipComponent,
   DebounceTimeComponent,
+  SwitchAllComponent,
+  StartWithComponent,
+  CombineLatestComponent,
+  WithLatestFromComponent,
 ];
 
 @NgModule({
