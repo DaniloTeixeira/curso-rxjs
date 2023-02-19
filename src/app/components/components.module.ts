@@ -27,6 +27,11 @@ import { SwitchAllComponent } from './join-operators/switch-all';
 import { StartWithComponent } from './join-operators/start-with';
 import { CombineLatestComponent } from './join-operators/combine-latest';
 import { WithLatestFromComponent } from './join-operators/with-latest-from';
+import { ShareReplayComponent } from './multicasting-operators/share-replay';
+import { ShareComponent } from './multicasting-operators/share';
+import { CatchErrorComponent } from './error-handling-operators/catch-error';
+import { RetryComponent } from './error-handling-operators/retry';
+import { RetryWhenComponent } from './error-handling-operators/retry-when';
 
 const components = [
   ObservablesComponent,
@@ -55,6 +60,11 @@ const components = [
   StartWithComponent,
   CombineLatestComponent,
   WithLatestFromComponent,
+  ShareReplayComponent,
+  ShareComponent,
+  CatchErrorComponent,
+  RetryComponent,
+  RetryWhenComponent,
 ];
 
 @NgModule({

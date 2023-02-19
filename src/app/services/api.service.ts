@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {
+  catchError,
   concat,
   delay,
   forkJoin,
@@ -8,6 +9,9 @@ import {
   map,
   merge,
   Observable,
+  of,
+  share,
+  shareReplay,
   zip,
 } from 'rxjs';
 
@@ -76,5 +80,21 @@ export class ApiService {
     const params = { name: name };
 
     return this.http.get<any>(this.apiLocal, { params });
+  }
+
+  getUsersShareReplay(): Observable<any> {
+    return this.http.get<any>(this.apiLocal).pipe(shareReplay(1));
+  }
+
+  getUsersShare(): Observable<any> {
+    return this.http.get<any>(this.apiLocal).pipe(share());
+  }
+
+  getUsersCatchError(): Observable<any> {
+    const wrongUrl = `${this.apiLocal}sss`;
+
+    return this.http
+      .get<any>(wrongUrl)
+      .pipe(catchError((e) => of(`ERRO! Motivo do erro: ${e.message}`)));
   }
 }
