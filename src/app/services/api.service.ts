@@ -10,8 +10,10 @@ import {
   merge,
   Observable,
   of,
+  retry,
   share,
   shareReplay,
+  throwError,
   zip,
 } from 'rxjs';
 
@@ -91,10 +93,31 @@ export class ApiService {
   }
 
   getUsersCatchError(): Observable<any> {
-    const wrongUrl = `${this.apiLocal}sss`;
+    const wrongUrl = `${this.apiLocal}/wrong`;
 
-    return this.http
-      .get<any>(wrongUrl)
-      .pipe(catchError((e) => of(`ERRO! Motivo do erro: ${e.message}`)));
+    return this.http.get<any>(wrongUrl).pipe(
+      catchError((e) => {
+        if (e.status === 400) {
+          return of(
+            'Ops! Não foi possível efetuar a requisição, contato o desenvolvedor'
+          );
+        }
+
+        if (e.status === 401) {
+          return of('Ops! Não autorizado');
+        }
+
+        if (e.status === 404) {
+          return of('Ops! URL não encontrada');
+        }
+
+        if (e.status === 405) {
+          return of('Ops! Método não permitido');
+        }
+
+        return throwError(() => e);
+      }),
+      retry(3)
+    );
   }
 }

@@ -32,6 +32,10 @@ import { ShareComponent } from './multicasting-operators/share';
 import { CatchErrorComponent } from './error-handling-operators/catch-error';
 import { RetryComponent } from './error-handling-operators/retry';
 import { RetryWhenComponent } from './error-handling-operators/retry-when';
+import { CatchErrorComponent } from './utility-operators/catch-error/catch-error.component';
+import { TapComponent } from './utility-operators/tap/tap.component';
+import { DelayComponent } from './utility-operators/delay/delay.component';
+import { TimeoutComponent } from './utility-operators/timeout/timeout.component';
 
 const components = [
   ObservablesComponent,
@@ -68,7 +72,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, CatchErrorComponent, TapComponent, DelayComponent, TimeoutComponent],
   imports: [CommonModule],
   exports: [...components],
 })
