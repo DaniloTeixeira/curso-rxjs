@@ -14,6 +14,7 @@ import {
   share,
   shareReplay,
   throwError,
+  timeout,
   zip,
 } from 'rxjs';
 
@@ -118,6 +119,18 @@ export class ApiService {
         return throwError(() => e);
       }),
       retry(3)
+    );
+  }
+
+  getUsersDelay(): Observable<any> {
+    return this.http.get<any>(this.apiLocal).pipe(delay(2000));
+  }
+
+  getUsersTimeout(): Observable<any> {
+    return this.http.get<any>(this.apiLocal).pipe(
+      delay(5000),
+      timeout(3000),
+      catchError((e) => of('Ops! Aconteceu algo de errado', e))
     );
   }
 }
