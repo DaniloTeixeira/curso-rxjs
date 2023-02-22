@@ -35,7 +35,10 @@ import { RetryWhenComponent } from './error-handling-operators/retry-when';
 import { TapComponent } from './utility-operators/tap';
 import { DelayComponent } from './utility-operators/delay';
 import { TimeoutComponent } from './utility-operators/timeout';
-import { ConditionalBooleanOperatorsComponent } from './conditional-boolean-operators/conditional-boolean-operators.component';
+import { EveryComponent } from './conditional-boolean-operators/every';
+import { FindComponent } from './conditional-boolean-operators/find';
+import { FindIndexComponent } from './conditional-boolean-operators/find-index';
+import { IsEmptyComponent } from './conditional-boolean-operators/is-empty';
 
 const components = [
   ObservablesComponent,
@@ -73,10 +76,14 @@ const components = [
   TapComponent,
   DelayComponent,
   TimeoutComponent,
+  EveryComponent,
+  FindComponent,
+  FindIndexComponent,
+  IsEmptyComponent,
 ];
 
 @NgModule({
-  declarations: [...components, ConditionalBooleanOperatorsComponent],
+  declarations: [...components],
   imports: [CommonModule],
   exports: [...components],
 })
