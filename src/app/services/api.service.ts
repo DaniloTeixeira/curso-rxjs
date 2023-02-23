@@ -17,6 +17,8 @@ import {
   timeout,
   zip,
 } from 'rxjs';
+import { Todo } from '../interfaces/Todo';
+import { User } from '../interfaces/User';
 
 @Injectable({
   providedIn: 'root',
@@ -27,76 +29,77 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getUsersForkJoin(): Observable<any> {
+  getUsersForkJoin(): Observable<{
+    apiLocal: User;
+    apiexterna: Todo;
+  }> {
     return forkJoin({
-      apiLocal: this.http.get<any>(this.apiLocal),
-      apiexterna: this.http.get<any>(this.apiExterna).pipe(delay(3000)),
+      apiLocal: this.http.get<User>(this.apiLocal),
+      apiexterna: this.http.get<Todo>(this.apiExterna).pipe(delay(3000)),
     });
   }
 
-  getUsersZip(): Observable<any> {
+  getUsersZip(): Observable<[User, Todo]> {
     return zip(
-      this.http.get<any>(this.apiLocal),
-      this.http.get<any>(this.apiExterna).pipe(delay(3000))
+      this.http.get<User>(this.apiLocal),
+      this.http.get<Todo>(this.apiExterna).pipe(delay(3000))
     );
   }
 
-  getUsersMerge(): Observable<any> {
+  getUsersMerge(): Observable<number | User | Todo> {
     const myInterval$ = interval(1000);
 
     return merge(
       myInterval$,
-      this.http.get<any>(this.apiLocal),
-      this.http.get<any>(this.apiExterna).pipe(delay(3000))
+      this.http.get<User>(this.apiLocal),
+      this.http.get<Todo>(this.apiExterna).pipe(delay(3000))
     );
   }
 
-  getUsersConcat(): Observable<any> {
+  getUsersConcat(): Observable<number | User | Todo> {
     const myInterval$ = interval(1000);
 
     return concat(
       myInterval$,
-      this.http.get<any>(this.apiLocal),
-      this.http.get<any>(this.apiExterna).pipe(delay(3000))
+      this.http.get<User>(this.apiLocal),
+      this.http.get<Todo>(this.apiExterna).pipe(delay(3000))
     );
   }
 
-  getUsersMap(): Observable<any> {
-    return this.http
-      .get<any>(this.apiExterna)
-      .pipe(map((res: any) => res?.title));
+  getUsersMap(): Observable<string> {
+    return this.http.get<Todo>(this.apiExterna).pipe(map((res) => res?.title));
   }
 
-  getUserSwitchMap(): Observable<any> {
+  getUserSwitchMap(): Observable<User> {
     const url = 'http://localhost:3000/user';
 
-    return this.http.get<any>(url);
+    return this.http.get<User>(url);
   }
 
-  getUserByCpf(id: number): Observable<any> {
+  getUserByCpf(id: number): Observable<User> {
     const params = new HttpParams().set('id', id);
 
-    return this.http.get<any>(this.apiLocal, { params });
+    return this.http.get<User>(this.apiLocal, { params });
   }
 
-  getUserByNameDebounceTime(name: string): Observable<any> {
+  getUserByNameDebounceTime(name: string): Observable<User> {
     const params = { name: name };
 
-    return this.http.get<any>(this.apiLocal, { params });
+    return this.http.get<User>(this.apiLocal, { params });
   }
 
-  getUsersShareReplay(): Observable<any> {
-    return this.http.get<any>(this.apiLocal).pipe(shareReplay(1));
+  getUsersShareReplay(): Observable<User> {
+    return this.http.get<User>(this.apiLocal).pipe(shareReplay(1));
   }
 
-  getUsersShare(): Observable<any> {
-    return this.http.get<any>(this.apiLocal).pipe(share());
+  getUsersShare(): Observable<User> {
+    return this.http.get<User>(this.apiLocal).pipe(share());
   }
 
-  getUsersCatchError(): Observable<any> {
+  getUsersCatchError(): Observable<string | User> {
     const wrongUrl = `${this.apiLocal}/wrong`;
 
-    return this.http.get<any>(wrongUrl).pipe(
+    return this.http.get<User>(wrongUrl).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return of(
@@ -122,12 +125,12 @@ export class ApiService {
     );
   }
 
-  getUsersDelay(): Observable<any> {
-    return this.http.get<any>(this.apiLocal).pipe(delay(2000));
+  getUsersDelay(): Observable<User> {
+    return this.http.get<User>(this.apiLocal).pipe(delay(2000));
   }
 
-  getUsersTimeout(): Observable<any> {
-    return this.http.get<any>(this.apiLocal).pipe(
+  getUsersTimeout(): Observable<User> {
+    return this.http.get<User>(this.apiLocal).pipe(
       delay(5000),
       timeout(3000),
       catchError((e) => of('Ops! Aconteceu algo de errado', e))
