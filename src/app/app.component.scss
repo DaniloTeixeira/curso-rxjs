@@ -1,3 +1,15 @@
 .app-container {
-  margin: 50px;
+  margin: 3rem;
+}
+
+div a {
+  text-decoration: underline;
+
+  &:hover {
+    color: #f1f1f1;
+  }
+}
+
+.accordion {
+  border: 1px solid #f1f1f1;
 }

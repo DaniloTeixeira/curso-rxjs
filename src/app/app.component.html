@@ -1,28 +1,40 @@
-<div class="app-container">
-  <h1 class="text-center mb-5">Operadores RXJS</h1>
+<!-- As a heading -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand m-3 h1 fw-bold"
+      href="https://rxjs.dev/guide/overview"
+      target="_blank"
+      >RxJS</a
+    >
+  </div>
+</nav>
 
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button
-          class="accordion-button"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseOne"
-          aria-expanded="true"
-          aria-controls="collapseOne"
+<div class="app-container">
+  <div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            <strong> Observables</strong>
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample"
         >
-          <strong> Observables</strong>
-        </button>
-      </h2>
-      <div
-        id="collapseOne"
-        class="accordion-collapse collapse show"
-        aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <app-observables></app-observables>
+          <div class="accordion-body">
+            <app-observables></app-observables>
+          </div>
         </div>
       </div>
     </div>
