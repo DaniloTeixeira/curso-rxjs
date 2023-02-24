@@ -1,7 +1,32 @@
 <div class="app-container">
-  <h1>Operadores RXJS</h1>
+  <h1 class="text-center mb-5">Operadores RXJS</h1>
 
-  <!-- <app-observables></app-observables> -->
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          <strong> Observables</strong>
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <app-observables></app-observables>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- <app-subject></app-subject> -->
 
@@ -79,7 +104,7 @@
 
   <!-- <app-tap></app-tap> -->
 
-  <app-delay></app-delay>
+  <!-- <app-delay></app-delay> -->
 
   <!-- <app-timeout></app-timeout> -->
 
