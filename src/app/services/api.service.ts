@@ -126,7 +126,7 @@ export class ApiService {
   }
 
   getUsersDelay(): Observable<User> {
-    return this.http.get<User>(this.apiLocal).pipe(delay(2000));
+    return this.http.get<User>(`${this.apiLocal}TESTE`).pipe(delay(2000));
   }
 
   getUsersTimeout(): Observable<User> {

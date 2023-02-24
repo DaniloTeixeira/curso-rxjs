@@ -22,7 +22,7 @@ export class SwitchMapComponent implements AfterViewInit {
     fromEvent(this.myButton.nativeElement, 'click')
       .pipe(switchMap(() => this.apiService.getUserSwitchMap()))
       .pipe(switchMap(({ id }) => this.apiService.getUserByCpf(id)))
-      .subscribe((res) => console.log(res[0]));
+      .subscribe((res) => console.log(res));
   }
 
   // A cada clique no DOM o switchMap troca de observable e começa a emitir os valores do zero
