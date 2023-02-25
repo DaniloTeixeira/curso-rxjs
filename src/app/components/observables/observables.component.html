@@ -37,8 +37,9 @@
   </button>
   <button
     class="ms-3"
-    [ngClass]="obsCompleted ? 'btn btn-primary' : 'btn btn-secondary'"
     (click)="reloadPage()"
+    [disabled]="!obsCompleted"
+    [ngClass]="obsCompleted ? 'btn btn-primary' : 'btn btn-secondary'"
   >
     Reiniciar
   </button>
