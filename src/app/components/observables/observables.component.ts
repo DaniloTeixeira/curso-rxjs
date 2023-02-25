@@ -1,44 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { interval, Observable } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { fromEvent, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-observables',
   templateUrl: './observables.component.html',
   styleUrls: ['./observables.component.scss'],
 })
-export class ObservablesComponent implements OnInit {
-  ngOnInit(): void {
+export class ObservablesComponent implements AfterViewInit {
+  @ViewChild('btn') btn!: ElementRef;
+
+  obsCompleted = false;
+
+  ngAfterViewInit(): void {
     this.initObservable();
   }
 
+  get label(): string {
+    return this.obsCompleted
+      ? 'Observable foi completado'
+      : 'Gerar número aleatório no console';
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
+
   private initObservable(): void {
-    const observable = new Observable((subscriber) => {
-      subscriber.next(10);
-      subscriber.next('Danilo');
-      subscriber.next(true);
-      subscriber.complete();
+    const buttonClick$ = fromEvent(this.btn.nativeElement, 'click');
+
+    const observable$ = new Observable((observer) => {
+      buttonClick$.subscribe(() => {
+        const randomNumber = Math.trunc(Math.random() * 100);
+
+        if (randomNumber <= 80) {
+          observer.next(`Valor do randomNumber: ${randomNumber}`);
+          return;
+        }
+
+        observer.complete();
+        console.log('Completou pois o randomNumber é maior que 80');
+        this.obsCompleted = true;
+      });
     });
 
-    // observable.subscribe({
-    //   next: (response) => console.log(`Observer response value: ${response}`),
-    //   error: (err) => console.log(`Observer error: ${err}`),
-    //   complete: () => console.log('Observer complete'),
-    // });
-
-    const observer = {
-      next: (response: any) =>
-        console.log(`Observer response value: ${response}`),
-    };
-
-    observer.next('Valor passado pelo método next()');
-
-    const subscription = observable.subscribe(observer);
-    const subscription2 = interval(1000).subscribe(console.log);
-
-    setTimeout(() => {
-      subscription2.unsubscribe();
-    }, 3000);
-
-    subscription.unsubscribe();
+    observable$.subscribe(console.log);
   }
 }

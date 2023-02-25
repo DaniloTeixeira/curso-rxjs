@@ -27,5 +27,19 @@
 </p>
 
 <div class="d-flex justify-content-end">
-  <button type="button" class="btn btn-primary">Ver no console</button>
+  <button
+    #btn
+    type="button"
+    [disabled]="obsCompleted"
+    [ngClass]="obsCompleted ? 'btn btn-secondary' : 'btn btn-primary'"
+  >
+    {{ label }}
+  </button>
+  <button
+    class="ms-3"
+    [ngClass]="obsCompleted ? 'btn btn-primary' : 'btn btn-secondary'"
+    (click)="reloadPage()"
+  >
+    Reiniciar
+  </button>
 </div>
