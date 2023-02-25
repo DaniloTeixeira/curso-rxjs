@@ -1,18 +1,31 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
+import { fromEvent, Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-observables',
   templateUrl: './observables.component.html',
   styleUrls: ['./observables.component.scss'],
 })
-export class ObservablesComponent implements AfterViewInit {
+export class ObservablesComponent implements AfterViewInit, OnDestroy {
   @ViewChild('btn') btn!: ElementRef;
 
   obsCompleted = false;
 
+  destroyed = new Subject<void>();
+
   ngAfterViewInit(): void {
     this.initObservable();
+  }
+
+  ngOnDestroy(): void {
+    this.destroyed.next();
+    this.destroyed.complete();
   }
 
   get label(): string {
@@ -29,7 +42,7 @@ export class ObservablesComponent implements AfterViewInit {
     const buttonClick$ = fromEvent(this.btn.nativeElement, 'click');
 
     const observable$ = new Observable((observer) => {
-      buttonClick$.subscribe(() => {
+      buttonClick$.pipe(takeUntil(this.destroyed)).subscribe(() => {
         const randomNumber = Math.trunc(Math.random() * 100);
 
         if (randomNumber <= 80) {
@@ -43,6 +56,6 @@ export class ObservablesComponent implements AfterViewInit {
       });
     });
 
-    observable$.subscribe(console.log);
+    observable$.pipe(takeUntil(this.destroyed)).subscribe(console.log);
   }
 }
