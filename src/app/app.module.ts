@@ -3,19 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentsModule } from './components/components.module';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './interceptors/request';
 import { AuthorizationInterceptor } from './interceptors/authorization';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComponentsModule,
     HttpClientModule,
+    SharedModule,
+    CoreModule,
+    RouterModule,
   ],
   providers: [
     {
