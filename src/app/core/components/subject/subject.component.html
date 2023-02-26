@@ -1,1 +1,50 @@
-<p>subject works!</p>
+<p>
+  Em RxJS Subject é um tipo especial de Observable que permite que valores sejam
+  emitidos por uma fonte externa, além de emitir valores por si só. Ele também
+  pode ser usado para compartilhar um fluxo de dados com vário observables.
+  Basicamente, um Subject é uma forma de ponte entre o Observable e o Observer.
+</p>
+
+<p>
+  Um Subject tem dois métodos principais: "next(value)" e "subcribe()". Quando
+  você chama o método next, o Subject emite um valor para todos os seu
+  observadores. Quando um observador chama o método subcribe, ele se increve no
+  Subject e começa a receber valores emitidos por ele.
+</p>
+
+<p>
+  Exitem quatro tipos de Subject em RxJS: "Subject", "BehaviorSubject",
+  "ReplaySubject" e "AsyncSubject". Cada um deles tem suas
+  prórpiascaracterísticas e casos de uso.
+</p>
+
+<p>
+  <strong> Subject: </strong> É o tipo básico de Subject. Ele emite apenas os
+  valores emitidos após a inscrição. Se um valor for emitido antes da inscrição,
+  o observador não o receberá.
+</p>
+
+<p>
+  <strong> BehaviorSubject: </strong> Ele mantém o valor atual e o emite para
+  novos observadores assim que se inscrevem. Também emite o último valor emitido
+  para os observadores existentes.
+</p>
+
+<p>
+  <strong> ReplaySubject: </strong> Ele emite todos os valores anteriores para
+  novos observadores, com a opção de limitar o número de valores que serão
+  emitidos. Também pode emitir valores anteriores para observadores existentes.
+</p>
+
+<p>
+  <strong> AsyncSubject: </strong> Ele emite apenas o último valor emitido antes
+  da conclusão. Se nenhum valor for emitido antes da conclusão, os observadores
+  não receberão nenhum valor.
+</p>
+
+<p>
+  Os Subjects são muito úteis em cenários em que você precisa compartilhar um
+  fluxo de dados entre vários componentes ou módulos da aplicação. Eles também
+  podem ser usados como uma forma de comunicação entre diferentes partes de uma
+  aplicação.
+</p>

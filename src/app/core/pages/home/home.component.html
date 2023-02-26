@@ -1,28 +1,140 @@
-<div>
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button
-          class="accordion-button"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseOne"
-          aria-expanded="true"
-          aria-controls="collapseOne"
-        >
-          <strong> Observables</strong>
-        </button>
-      </h2>
-      <div
-        id="collapseOne"
-        class="accordion-collapse collapse show"
-        aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample"
+<!-- OBSERVABLE -->
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="observable">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#obs"
+        aria-expanded="true"
+        aria-controls="obs"
       >
-        <div class="accordion-body">
-          <app-observables></app-observables>
-        </div>
+        <strong> Observables </strong>
+      </button>
+    </h2>
+    <div
+      id="obs"
+      class="accordion-collapse collapse"
+      aria-labelledby="observable"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <app-observables></app-observables>
       </div>
     </div>
   </div>
 </div>
+
+<!-- SUBJECT -->
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="subject">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sub"
+        aria-controls="sub"
+      >
+        <strong> Subjects </strong>
+      </button>
+    </h2>
+    <div
+      id="sub"
+      class="accordion-collapse collapse"
+      aria-labelledby="subject"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <app-subject></app-subject>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <h3>Operadores de Criação</h3> -->
+
+<!-- <app-from></app-from> -->
+
+<!-- <app-of></app-of> -->
+
+<!-- <app-from-event></app-from-event> -->
+
+<!-- <app-interval></app-interval> -->
+
+<!-- <app-timer></app-timer> -->
+
+<!-- <app-throw-error></app-throw-error> -->
+
+<!-- <app-ajax></app-ajax> -->
+
+<!-- <h3>Operadores de Criação e Junção</h3> -->
+
+<!-- <app-forkjoin></app-forkjoin> -->
+
+<!-- <app-zip></app-zip> -->
+
+<!-- <app-merge-concat></app-merge-concat> -->
+
+<!-- <h3>Operadores de Transformação</h3> -->
+
+<!-- <app-map></app-map> -->
+
+<!-- <app-map-to></app-map-to> -->
+
+<!-- <app-switch-map></app-switch-map> -->
+
+<!-- <app-to-array></app-to-array> -->
+
+<!-- <h3>Operadores de Filtragem</h3> -->
+
+<!-- <app-filter></app-filter> -->
+
+<!-- <app-take></app-take> -->
+
+<!-- <app-take-until></app-take-until> -->
+
+<!-- <app-take-while></app-take-while> -->
+
+<!-- <app-skip></app-skip> -->
+
+<!-- <app-debounce-time></app-debounce-time> -->
+
+<!-- <h3>Operadores de Junção</h3> -->
+
+<!-- <app-switch-all></app-switch-all> -->
+
+<!-- <app-start-with></app-start-with> -->
+
+<!-- <app-combine-latest></app-combine-latest> -->
+
+<!-- <app-with-latest-from></app-with-latest-from> -->
+
+<!-- <app-share-replay></app-share-replay> -->
+
+<!-- <app-share></app-share> -->
+
+<!-- <h3>Operadores de Tratamento de Erros</h3> -->
+
+<!-- <app-catch-error></app-catch-error> -->
+
+<!-- <app-retry></app-retry> -->
+
+<!-- <app-retry-when></app-retry-when> -->
+
+<!-- <h3>Operadores Utilitários</h3> -->
+
+<!-- <app-tap></app-tap> -->
+
+<!-- <app-delay></app-delay> -->
+
+<!-- <app-timeout></app-timeout> -->
+
+<!-- <app-every></app-every> -->
+
+<!-- <app-find></app-find> -->
+
+<!-- <app-find-index></app-find-index> -->
+
+<!-- <app-is-empty></app-is-empty> -->
