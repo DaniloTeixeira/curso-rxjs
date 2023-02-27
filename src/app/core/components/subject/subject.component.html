@@ -50,7 +50,14 @@
 </p>
 
 <div class="d-flex justify-content-end">
-  <button class="btn btn-primary" #subjectBtn (click)="onSubject()">
+  <button class="btn btn-primary me-3" #subjectBtn (click)="onSubject()">
     Subject
+  </button>
+  <button
+    class="btn btn-primary me-3"
+    #behaviorSubjectBtn
+    (click)="onBehaviorSubject()"
+  >
+    BehaviorSubject
   </button>
 </div>
