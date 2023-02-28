@@ -1,21 +1,21 @@
 <p>
   Em RxJS Subject é um tipo especial de Observable que permite que valores sejam
   emitidos por uma fonte externa, além de emitir valores por si só. Ele também
-  pode ser usado para compartilhar um fluxo de dados com vário observables.
+  pode ser usado para compartilhar um fluxo de dados com vários observables.
   Basicamente, um Subject é uma forma de ponte entre o Observable e o Observer.
 </p>
 
 <p>
   Um Subject tem dois métodos principais: "next(value)" e "subcribe()". Quando
   você chama o método next, o Subject emite um valor para todos os seu
-  observadores. Quando um observador chama o método subcribe, ele se increve no
+  observadores. Quando um observador chama o método subscribe, ele se increve no
   Subject e começa a receber valores emitidos por ele.
 </p>
 
 <p>
-  Exitem quatro tipos de Subject em RxJS: "Subject", "BehaviorSubject",
-  "ReplaySubject" e "AsyncSubject". Cada um deles tem suas
-  prórpiascaracterísticas e casos de uso.
+  Existem quatro tipos de Subject em RxJS: "Subject", "BehaviorSubject",
+  "ReplaySubject" e "AsyncSubject". Cada um deles tem suas prórpias
+  características e casos de uso.
 </p>
 
 <p>
@@ -25,21 +25,22 @@
 </p>
 
 <p>
-  <strong> BehaviorSubject: </strong> Ele mantém o valor atual e o emite para
-  novos observadores assim que se inscrevem. Também emite o último valor emitido
-  para os observadores existentes.
+  <strong> BehaviorSubject: </strong> Precisa ser iniciado com um valor. Os
+  observadores recebem o último valor emitido e todos os próximos valores.
 </p>
 
 <p>
-  <strong> ReplaySubject: </strong> Ele emite todos os valores anteriores para
-  novos observadores, com a opção de limitar o número de valores que serão
-  emitidos. Também pode emitir valores anteriores para observadores existentes.
+  <strong> ReplaySubject: </strong> Pode ou não ser iniciado com um valor. Caso
+  não seja passado nenhum valor inicial, os observadores receberão todos os
+  valores emitidos, antes e depois da inscrição, caso seja passado um valor
+  inicial, os observadores receberão apenas a quantidade especificada de valores
+  emitidos antes da inscrição e todos os próximos valores emitidos.
 </p>
 
 <p>
-  <strong> AsyncSubject: </strong> Ele emite apenas o último valor emitido antes
-  da conclusão. Se nenhum valor for emitido antes da conclusão, os observadores
-  não receberão nenhum valor.
+  <strong> AsyncSubject: </strong> Emite apenas o último valor passado na função
+  next(), os observadores só recebem o valor emitido quando o AsyncSubject for
+  completado.
 </p>
 
 <p>
@@ -49,15 +50,38 @@
   aplicação.
 </p>
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end align-items-center">
+  <strong class="me-4 text-secondary">
+    Clique em cada um dos botões para testar os diferentes tipos de Subject no
+    console
+    <span class="ms-2">&#8594;</span>
+  </strong>
+
   <button class="btn btn-primary me-3" #subjectBtn (click)="onSubject()">
     Subject
   </button>
+
   <button
     class="btn btn-primary me-3"
     #behaviorSubjectBtn
     (click)="onBehaviorSubject()"
   >
     BehaviorSubject
+  </button>
+
+  <button
+    class="btn btn-primary me-3"
+    #behaviorSubjectBtn
+    (click)="onReplaySubject()"
+  >
+    ReplaySubject
+  </button>
+
+  <button
+    class="btn btn-primary me-3"
+    #behaviorSubjectBtn
+    (click)="onAsyncSubject()"
+  >
+    AsyncSubject
   </button>
 </div>
