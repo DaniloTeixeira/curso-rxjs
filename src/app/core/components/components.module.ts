@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ObservablesComponent } from './observables';
 import { SubjectComponent } from './subject';
-import { FromComponent } from './creation-operators/from';
-import { OfComponent } from './creation-operators/of';
-import { FromEventComponent } from './creation-operators/from-event';
-import { IntervalComponent } from './creation-operators/interval';
-import { TimerComponent } from './creation-operators/timer';
-import { ThrowErrorComponent } from './creation-operators/throw-error';
-import { AjaxComponent } from './creation-operators/ajax';
+import { FromComponent } from './creation-operators/operators/from';
+import { OfComponent } from './creation-operators/operators/of';
+import { FromEventComponent } from './creation-operators/operators/from-event';
+import { IntervalComponent } from './creation-operators/operators/interval';
+import { TimerComponent } from './creation-operators/operators/timer';
+import { ThrowErrorComponent } from './creation-operators/operators/throw-error';
+import { AjaxComponent } from './creation-operators/operators/ajax';
 import { ForkjoinComponent } from './creation-and-join-operators/forkjoin';
 import { ZipComponent } from './creation-and-join-operators/zip';
 import { MergeConcatComponent } from './creation-and-join-operators/merge-concat';
@@ -39,6 +39,7 @@ import { EveryComponent } from './conditional-boolean-operators/every';
 import { FindComponent } from './conditional-boolean-operators/find';
 import { FindIndexComponent } from './conditional-boolean-operators/find-index';
 import { IsEmptyComponent } from './conditional-boolean-operators/is-empty';
+import { CreationOperatorsViewComponent } from './creation-operators/operators-view';
 
 const components = [
   ObservablesComponent,
@@ -80,6 +81,7 @@ const components = [
   FindComponent,
   FindIndexComponent,
   IsEmptyComponent,
+  CreationOperatorsViewComponent,
 ];
 
 @NgModule({

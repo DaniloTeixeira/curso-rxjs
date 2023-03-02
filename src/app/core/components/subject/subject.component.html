@@ -1,87 +1,122 @@
-<p>
-  Em RxJS Subject é um tipo especial de Observable que permite que valores sejam
-  emitidos por uma fonte externa, além de emitir valores por si só. Ele também
-  pode ser usado para compartilhar um fluxo de dados com vários observables.
-  Basicamente, um Subject é uma forma de ponte entre o Observable e o Observer.
-</p>
+<!-- SUBJECT -->
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="subject">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sub"
+        aria-controls="sub"
+      >
+        <strong> Subjects </strong>
+      </button>
+    </h2>
+    <div
+      id="sub"
+      class="accordion-collapse collapse"
+      aria-labelledby="subject"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <ng-container>
+          <p>
+            Em RxJS Subject é um tipo especial de Observable que permite que
+            valores sejam emitidos por uma fonte externa, além de emitir valores
+            por si só. Ele também pode ser usado para compartilhar um fluxo de
+            dados com vários observables. Basicamente, um Subject é uma forma de
+            ponte entre o Observable e o Observer.
+          </p>
 
-<p>
-  Um Subject tem dois métodos principais: "next(value)" e "subcribe()". Quando
-  você chama o método next, o Subject emite um valor para todos os seu
-  observadores. Quando um observador chama o método subscribe, ele se increve no
-  Subject e começa a receber valores emitidos por ele.
-</p>
+          <p>
+            Um Subject tem dois métodos principais: "next(value)" e
+            "subcribe()". Quando você chama o método next, o Subject emite um
+            valor para todos os seu observadores. Quando um observador chama o
+            método subscribe, ele se increve no Subject e começa a receber
+            valores emitidos por ele.
+          </p>
 
-<p>
-  Existem quatro tipos de Subject em RxJS: "Subject", "BehaviorSubject",
-  "ReplaySubject" e "AsyncSubject". Cada um deles tem suas prórpias
-  características e casos de uso.
-</p>
+          <p>
+            Existem quatro tipos de Subject em RxJS: "Subject",
+            "BehaviorSubject", "ReplaySubject" e "AsyncSubject". Cada um deles
+            tem suas prórpias características e casos de uso.
+          </p>
 
-<p>
-  <strong> Subject: </strong> É o tipo básico de Subject. Ele emite apenas os
-  valores emitidos após a inscrição. Se um valor for emitido antes da inscrição,
-  o observador não o receberá.
-</p>
+          <p>
+            <strong> Subject: </strong> É o tipo básico de Subject. Ele emite
+            apenas os valores emitidos após a inscrição. Se um valor for emitido
+            antes da inscrição, o observador não o receberá.
+          </p>
 
-<p>
-  <strong> BehaviorSubject: </strong> Precisa ser iniciado com um valor. Os
-  observadores recebem o último valor emitido e todos os próximos valores.
-</p>
+          <p>
+            <strong> BehaviorSubject: </strong> Precisa ser iniciado com um
+            valor. Os observadores recebem o último valor emitido e todos os
+            próximos valores.
+          </p>
 
-<p>
-  <strong> ReplaySubject: </strong> Pode ou não ser iniciado com um valor. Caso
-  não seja passado nenhum valor inicial, os observadores receberão todos os
-  valores emitidos, antes e depois da inscrição, caso seja passado um valor
-  inicial, os observadores receberão apenas a quantidade especificada de valores
-  emitidos antes da inscrição e todos os próximos valores emitidos.
-</p>
+          <p>
+            <strong> ReplaySubject: </strong> Pode ou não ser iniciado com um
+            valor. Caso não seja passado nenhum valor inicial, os observadores
+            receberão todos os valores emitidos, antes e depois da inscrição,
+            caso seja passado um valor inicial, os observadores receberão apenas
+            a quantidade especificada de valores emitidos antes da inscrição e
+            todos os próximos valores emitidos.
+          </p>
 
-<p>
-  <strong> AsyncSubject: </strong> Emite apenas o último valor passado na função
-  next(), os observadores só recebem o valor emitido quando o AsyncSubject for
-  completado.
-</p>
+          <p>
+            <strong> AsyncSubject: </strong> Emite apenas o último valor passado
+            na função next(), os observadores só recebem o valor emitido quando
+            o AsyncSubject for completado.
+          </p>
 
-<p>
-  Os Subjects são muito úteis em cenários em que você precisa compartilhar um
-  fluxo de dados entre vários componentes ou módulos da aplicação. Eles também
-  podem ser usados como uma forma de comunicação entre diferentes partes de uma
-  aplicação.
-</p>
+          <p>
+            Os Subjects são muito úteis em cenários em que você precisa
+            compartilhar um fluxo de dados entre vários componentes ou módulos
+            da aplicação. Eles também podem ser usados como uma forma de
+            comunicação entre diferentes partes de uma aplicação.
+          </p>
 
-<div class="d-flex justify-content-end align-items-center">
-  <strong class="me-4 text-secondary">
-    Clique em cada um dos botões para testar os diferentes tipos de Subject no
-    console
-    <span class="ms-2">&#8594;</span>
-  </strong>
+          <div class="d-flex justify-content-end align-items-center">
+            <strong class="me-4 text-secondary">
+              Clique em cada um dos botões para testar os diferentes tipos de
+              Subject no console
+              <span class="ms-2">&#8594;</span>
+            </strong>
 
-  <button class="btn btn-primary me-3" #subjectBtn (click)="onSubject()">
-    Subject
-  </button>
+            <button
+              class="btn btn-primary me-3"
+              #subjectBtn
+              (click)="onSubject()"
+            >
+              Subject
+            </button>
 
-  <button
-    class="btn btn-primary me-3"
-    #behaviorSubjectBtn
-    (click)="onBehaviorSubject()"
-  >
-    BehaviorSubject
-  </button>
+            <button
+              class="btn btn-primary me-3"
+              #behaviorSubjectBtn
+              (click)="onBehaviorSubject()"
+            >
+              BehaviorSubject
+            </button>
 
-  <button
-    class="btn btn-primary me-3"
-    #behaviorSubjectBtn
-    (click)="onReplaySubject()"
-  >
-    ReplaySubject
-  </button>
+            <button
+              class="btn btn-primary me-3"
+              #behaviorSubjectBtn
+              (click)="onReplaySubject()"
+            >
+              ReplaySubject
+            </button>
 
-  <button
-    class="btn btn-primary me-3"
-    #behaviorSubjectBtn
-    (click)="onAsyncSubject()"
-  >
-    AsyncSubject
-  </button>
+            <button
+              class="btn btn-primary me-3"
+              #behaviorSubjectBtn
+              (click)="onAsyncSubject()"
+            >
+              AsyncSubject
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </div>
