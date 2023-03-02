@@ -1,1 +1,53 @@
-<p>interval works!</p>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="intervalOperator">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#interval"
+        aria-controls="interval"
+      >
+        <strong class="text-info"> interval </strong>
+      </button>
+    </h2>
+    <div
+      id="interval"
+      class="accordion-collapse collapse"
+      aria-labelledby="intervalOperator"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <p>
+          O método interval do RxJS é utilizado para criar um Observable que
+          emite um valor numérico crescente a cada intervalo de tempo
+          especificado. Ele é útil quando você precisa emitir valores de forma
+          periódica em um intervalo fixo de tempo.
+        </p>
+
+        <p>
+          O Observable criado por interval emite valores indefinidamente, e
+          nunca completa por si só. Isso significa que ele continua emitindo
+          valores a cada intervalo de tempo especificado até que a inscrição
+          seja cancelada manualmente usando o método unsubscribe().
+        </p>
+
+        <p>
+          O método interval pode ser combinado com outros operadores do RxJS
+          para criar comportamentos mais complexos, como emitir valores apenas
+          após um determinado número de intervalos, ou para controlar o fluxo
+          dos valores emitidos. Ele é particularmente útil em casos em que
+          precisamos executar tarefas de forma periódica, como atualizar um
+          relógio ou monitorar o tráfego de rede.
+        </p>
+
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-primary me-3" #btnStart>
+            Iniciar interval no console
+          </button>
+          <button class="btn btn-danger" #btnStop>Encerrar interval</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
