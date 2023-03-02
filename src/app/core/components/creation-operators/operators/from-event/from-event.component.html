@@ -1,2 +1,53 @@
-<p>from-event works!</p>
-<button #button>Create observable DOM element</button>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="fromEventOperator">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#fromEvent"
+        aria-controls="fromEvent"
+      >
+        <strong class="text-info"> fromEvent </strong>
+      </button>
+    </h2>
+    <div
+      id="fromEvent"
+      class="accordion-collapse collapse"
+      aria-labelledby="fromEventOperator"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <ng-container>
+          <p>
+            O método fromEvent do RxJS é utilizado para criar um Observable a
+            partir de um evento DOM ou de outro tipo de evento. Ele aceita dois
+            argumentos: o primeiro é a origem do evento (um elemento DOM, um
+            objeto EventEmitter, etc.) e o segundo é o nome do evento que
+            queremos observar.
+          </p>
+
+          <p>
+            O Observable criado por fromEvent continua emitindo novos eventos
+            sempre que eles acontecem na origem (no caso, o botão). É importante
+            lembrar de cancelar a inscrição (usando o método unsubscribe())
+            quando não precisar mais receber esses eventos, para evitar
+            vazamentos de memória.
+          </p>
+
+          <p>
+            O método fromEvent também pode ser usado para observar eventos de
+            outros tipos de objetos que emitem eventos, como o WebSocket. Em
+            resumo, o método fromEvent é útil para transformar eventos em
+            Observable de forma simples e fácil de usar.
+          </p>
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" #button>
+              Criar observable do elemento DOM
+            </button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

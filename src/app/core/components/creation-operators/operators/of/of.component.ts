@@ -42,7 +42,7 @@ export class OfComponent implements AfterViewInit, OnDestroy {
     buttonClick$.pipe(takeUntil(this.destroyed$)).subscribe(() => {
       obsArray$.subscribe((value) => {
         value.push(counter);
-        console.log('Inserindo elemento no of de array: ', value);
+        console.log('Inserindo elemento em of de array: ', value);
 
         counter++;
       });
